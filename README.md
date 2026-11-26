@@ -25,7 +25,7 @@ Echte foto's toevoegen kan in `assets/photos/`, als JPG van ongeveer 2000 pixels
 
 1. **Airbnb-links als geheim bewaren.** In Airbnb: Agenda > Beschikbaarheid > Agenda's koppelen > Airbnb-agenda exporteren. Kopieer de link per appartement.
    In GitHub: Settings > Secrets and variables > Actions > New repository secret. Maak `AIRBNB_ICAL_207`, `AIRBNB_ICAL_301` en `AIRBNB_ICAL_303` aan.
-2. **Website aanzetten.** GitHub: Settings > Pages > Source: "Deploy from a branch", branch `main`, map `/ (root)`. Vul bij Custom domain `seafox.be` in en vink "Enforce HTTPS" aan zodra dat kan.
+2. **Website aanzetten.** GitHub: Settings > Pages > Source: "Deploy from a branch", branch `main`, map `/ (root)`. De site staat dan op het testadres `https://wimbroos1.github.io/Seafox/`. Vul pas bij Custom domain `seafox.be` in wanneer je klaar bent om live te gaan, en vink dan "Enforce HTTPS" aan zodra dat kan.
 3. **Domein koppelen bij OVHcloud.** In de DNS-zone van seafox.be:
    - A-records voor `seafox.be` naar 185.199.108.153, 185.199.109.153, 185.199.110.153 en 185.199.111.153 (verwijder andere A-records voor het hoofddomein).
    - CNAME voor `www` naar `<jouw-github-naam>.github.io.`
