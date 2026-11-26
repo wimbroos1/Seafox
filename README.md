@@ -31,12 +31,14 @@ De huisstijl (kleuren en lettertypes) staat bovenaan in `assets/style.css`. De i
 
 Er staat nog geen echte foto van het zwembad op de site. Zet er een neer als `assets/photos/algemeen/zwembad.jpg` en laat het weten, dan vervangt die de illustratie.
 
-## Winterthema aan- en uitzetten
+## Seafox Winter: de wintereditie
 
-Het winterthema (sneeuw, lichtjes, het blok op de startpagina en de pagina Winter in het menu) wordt geregeld in `data/site.json` onder `winter`:
+In de winter wordt de site vanzelf "Seafox Winter": het logo krijgt een muts en het label Winter, de startpagina opent met de schaatsbaan en de kerstmarkt op het plein, er valt sneeuw, er hangen lichtjes, de vrije nachten van die periode staan bovenaan en het zwembad schuift naar onderen met de melding dat het in april weer opent. Buiten de winter toont dezelfde site de gewone versie.
 
-- `"show": "auto"` toont het thema vanzelf van `showFrom` tot en met `until`. Daarna verdwijnt het zonder dat je iets hoeft te doen.
-- `"show": "aan"` toont het altijd, `"show": "uit"` nooit.
+Dat wordt geregeld in `data/site.json` onder `winter`:
+
+- `"show": "auto"` toont de wintereditie vanzelf van `showFrom` tot en met `until`. Daarna verdwijnt ze zonder dat je iets hoeft te doen.
+- `"show": "aan"` toont ze altijd, `"show": "uit"` nooit.
 - `from`, `until` en `events` zijn de data en het programma van Winterpret. Pas ze volgend jaar aan.
 
 In hetzelfde bestand staat ook het e-mailadres (`email`) waar aanvragen naartoe gaan.

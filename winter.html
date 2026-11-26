@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <title>Winter aan zee: schaatsen en kerstmarkt voor de deur | Seafox Blankenberge</title>
+  <title>Seafox Winter: schaatsen en kerstmarkt voor de deur in Blankenberge</title>
   <meta name="description" content="Winterpret Blankenberge: een overdekte schaatsbaan en kerstmarkt op het Koning Leopold III-plein, het plein waar Seafox aan ligt.">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 <body>
   <header id="site-header"></header>
 
-  <section class="winter-hero" data-snow data-lights>
+  <section class="winter-hero" data-lights>
     <img src="assets/illustrations/winter.svg" alt="Illustratie van een schaatsbaan en kerstmarkt bij avond">
     <div class="wrap">
       <span class="eyebrow gold">Winter aan zee</span>
@@ -96,16 +96,13 @@
   <footer id="site-footer"></footer>
 
   <script type="module">
-    import { icon, initSite, isoDate } from "./assets/site.js";
+    import { initSite, isoDate, longDate, renderFreeNights } from "./assets/site.js";
     const { site, apartments } = await initSite("winter");
     const w = site.winter;
     const d = (s) => new Date(s + "T12:00:00");
-    const long = (s, y = false) => d(s).toLocaleDateString("nl-BE", { day: "numeric", month: "long", ...(y ? { year: "numeric" } : {}) });
-    const short = (s) => d(s).toLocaleDateString("nl-BE", { weekday: "short", day: "numeric", month: "short" }).replace(/\./g, "");
-    const addDays = (s, n) => { const x = d(s); x.setDate(x.getDate() + n); return isoDate(x); };
     const today = isoDate(new Date());
 
-    document.getElementById("w-range").textContent = `${long(w.from)} tot ${long(w.until, true)}`;
+    document.getElementById("w-range").textContent = `${longDate(w.from)} tot ${longDate(w.until, true)}`;
     document.getElementById("w-source").href = w.source;
 
     const photos = await fetch("assets/photos/manifest.json").then((r) => r.json()).catch(() => ({}));
@@ -121,39 +118,7 @@
         <span class="when">${[d(e.date).toLocaleDateString("nl-BE", { weekday: "long" }), e.time].filter(Boolean).join(" · ")}</span>
       </li>`).join("");
 
-    // Vrije periodes per appartement tijdens Winterpret, uit dezelfde agenda als de kalender.
-    const availability = await fetch("data/availability.json").then((r) => r.json()).catch(() => null);
-    const free = document.getElementById("free");
-    if (!availability) {
-      free.innerHTML = `<p class="muted">De agenda is nu even niet bereikbaar. Bekijk de beschikbaarheid op de pagina van elk appartement.</p>`;
-    } else {
-      const from = today > w.from ? today : w.from;
-      free.innerHTML = apartments.map((a) => {
-        const busy = new Set();
-        for (const b of availability.apartments?.[a.id] ?? []) for (let x = b.start; x < b.end; x = addDays(x, 1)) busy.add(x);
-        // Opeenvolgende vrije nachten samennemen tot periodes [aankomst, vertrek).
-        const ranges = [];
-        let start = null;
-        for (let x = from; x <= w.until; x = addDays(x, 1)) {
-          if (!busy.has(x)) start ??= x;
-          else if (start) { ranges.push([start, x]); start = null; }
-        }
-        if (start) ranges.push([start, addDays(w.until, 1)]);
-        const rows = ranges.map(([s, e]) => {
-          const n = Math.round((d(e) - d(s)) / 864e5);
-          return `<li><a href="appartement.html?id=${a.id}&arr=${s}&dep=${e}#boeken"><b>${short(s)}</b> tot <b>${short(e)}</b></a><span>${n} nacht${n > 1 ? "en" : ""}</span></li>`;
-        }).join("") || `<li class="none">Volzet tijdens Winterpret</li>`;
-        return `<div class="card reveal in">
-          <h3><small>${a.name} · ${a.guests} gasten</small>${a.subtitle}</h3>
-          <ul>${rows}</ul>
-          <a class="link" href="appartement.html?id=${a.id}">Bekijk het appartement ${icon("arrow")}</a>
-        </div>`;
-      }).join("");
-      if (availability.updated) {
-        const t = new Date(availability.updated).toLocaleString("nl-BE", { dateStyle: "medium", timeStyle: "short" });
-        document.getElementById("free-note").textContent = `Agenda laatst bijgewerkt: ${t}. Vertrekken kan ook op een dag waarop een volgende gast aankomt.`;
-      }
-    }
+    await renderFreeNights(document.getElementById("free"), document.getElementById("free-note"), apartments, site);
   </script>
 </body>
 </html>
