@@ -2,9 +2,9 @@
 // Draait op GitHub (zie .github/workflows/fetch-photos.yml). Bronnen: data/photo-sources.json.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 
-const MAX_PER_APARTMENT = 16;
-const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const sources = JSON.parse(await readFile("data/photo-sources.json", "utf8"));
+const MAX_PER_APARTMENT = sources.max ?? 16;
+const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const manifest = {};
 
 // Probeert extra foto's te vinden op de advertentiepagina zelf (alleen foto's van die advertentie).
@@ -24,7 +24,7 @@ async function discover(listing) {
 
 for (const [id, src] of Object.entries(sources.apartments)) {
   console.log(`Appartement ${id}`);
-  const extra = src.listing ? await discover(src.listing) : [];
+  const extra = src.listing && sources.discover ? await discover(src.listing) : [];
   const urls = [...new Set([...src.photos, ...extra])].slice(0, MAX_PER_APARTMENT);
   console.log(`  ${src.photos.length} vaste en ${extra.length} gevonden foto's, ${urls.length} om op te halen`);
   await mkdir(`assets/photos/${id}`, { recursive: true });
@@ -39,7 +39,7 @@ for (const [id, src] of Object.entries(sources.apartments)) {
       n += 1;
       const file = `assets/photos/${id}/${String(n).padStart(2, "0")}.jpg`;
       await writeFile(file, buf);
-      manifest[id].push({ src: file, bytes: buf.length });
+      manifest[id].push({ src: file, url, bytes: buf.length });
       console.log(`  ${file} (${Math.round(buf.length / 1024)} kB)`);
     } catch (err) {
       console.log(`  overgeslagen: ${url.split("/").pop()} (${err.message})`);

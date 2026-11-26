@@ -1,6 +1,8 @@
 {
   "note": "Bronnen van de eigen Airbnb-foto's van Seafox. De workflow 'Foto's ophalen' downloadt ze naar assets/photos/.",
   "width": 1440,
+  "discover": true,
+  "max": 40,
   "apartments": {
     "207": {
       "listing": "https://www.airbnb.be/rooms/1033912047756559199",
