@@ -87,6 +87,9 @@ export function cover(apt, eager = false) {
 }
 
 // ---------- Instellingen en seizoen ----------
+// Waar de agenda met bezette nachten staat.
+export const AVAILABILITY_URL = "../data/availability.json";
+
 const pad = (n) => String(n).padStart(2, "0");
 export const isoDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 
@@ -103,6 +106,8 @@ export function winterActive(site) {
 }
 
 const FOX = '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 5l9 9h10l9-9-2 17-12 12L8 22z" fill="#ff6a3d"/><path d="M8 22h7l5 6 5-6h7L20 34z" fill="#ffd9b0"/><circle cx="15" cy="19" r="1.4" fill="#0a2230"/><circle cx="25" cy="19" r="1.4" fill="#0a2230"/><circle cx="20" cy="31.4" r="1.5" fill="#0a2230"/></svg>';
+// In de wintereditie draagt de vos een muts.
+const FOX_WINTER = FOX.replace("</svg>", '<path d="M21 13.5c2-7 8-11.5 15-9.5-3 1.5-3.5 5-2.5 9.5z" fill="#e63b2e"/><rect x="19.5" y="11.5" width="16" height="4.6" rx="2.3" fill="#fff"/><circle cx="36.5" cy="4" r="2.9" fill="#fff"/></svg>');
 
 // ---------- Kop en voet (op elke pagina hetzelfde) ----------
 function renderChrome(site, page, winter, apartments) {
@@ -116,7 +121,7 @@ function renderChrome(site, page, winter, apartments) {
   header.className = "hdr";
   header.innerHTML = `
     <div class="wrap">
-      <a class="logo" href="./" aria-label="Seafox Blankenberge">${FOX}<span>Seafox</span></a>
+      <a class="logo" href="./" aria-label="${winter ? "Seafox Winter" : "Seafox Blankenberge"}">${winter ? FOX_WINTER : FOX}<span>Seafox</span>${winter ? '<em class="edition">Winter</em>' : ""}</a>
       <nav class="nav" id="nav">
         ${links.map(([href, label, key]) => `<a href="${href}" ${key === page ? 'aria-current="page"' : ""}>${label}${key === "winter" ? '<i class="dot"></i>' : ""}</a>`).join("")}
         <a class="btn sm" href="./#appartementen">Boek rechtstreeks</a>
@@ -141,8 +146,8 @@ function renderChrome(site, page, winter, apartments) {
     <div class="wrap">
       <div class="ftr-top">
         <div>
-          <a class="logo" href="./">${FOX}<span>Seafox</span></a>
-          <p>Drie appartementen met dakzwembad in het hart van Blankenberge, op wandelafstand van het strand.</p>
+          <a class="logo" href="./">${winter ? FOX_WINTER : FOX}<span>Seafox</span>${winter ? '<em class="edition">Winter</em>' : ""}</a>
+          <p>${winter ? "Drie warme appartementen in het hart van Blankenberge, met de schaatsbaan en de kerstmarkt op het plein voor de deur." : "Drie appartementen met dakzwembad in het hart van Blankenberge, op wandelafstand van het strand."}</p>
         </div>
         <div>
           <h4>Appartementen</h4>
@@ -170,41 +175,39 @@ function renderChrome(site, page, winter, apartments) {
 }
 
 // ---------- Winter: sneeuw en lichtjes ----------
-// Zachte sneeuw in elk blok met data-snow. Staat uit voor wie liever geen beweging ziet.
+// Zachte sneeuw over de hele pagina. Staat uit voor wie liever geen beweging ziet.
 function startSnow() {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  document.querySelectorAll("[data-snow]").forEach((host) => {
-    const c = document.createElement("canvas");
-    c.className = "snow";
-    host.prepend(c);
-    const ctx = c.getContext("2d");
-    let w, h, flakes = [], visible = true;
-    const size = () => {
-      const r = host.getBoundingClientRect();
-      const dpr = Math.min(devicePixelRatio || 1, 2);
-      w = r.width; h = r.height;
-      c.width = w * dpr; c.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.round(Math.min(90, (w * h) / 16000));
-      flakes = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, r: 0.7 + Math.random() * 2.1, v: 0.25 + Math.random() * 0.7, p: Math.random() * 6.3, o: 0.25 + Math.random() * 0.55 }));
-    };
-    size();
-    addEventListener("resize", size);
-    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(host);
-    const tick = (t) => {
-      if (visible) {
-        ctx.clearRect(0, 0, w, h);
-        for (const f of flakes) {
-          f.y += f.v; f.x += Math.sin(t / 1400 + f.p) * 0.3;
-          if (f.y > h + 4) { f.y = -4; f.x = Math.random() * w; }
-          ctx.globalAlpha = f.o;
-          ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.3); ctx.fillStyle = "#fff"; ctx.fill();
-        }
+  const c = document.createElement("canvas");
+  c.className = "snow";
+  c.setAttribute("aria-hidden", "true");
+  document.body.append(c);
+  const ctx = c.getContext("2d");
+  let w, h, flakes = [];
+  const size = () => {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    w = innerWidth; h = innerHeight;
+    c.width = w * dpr; c.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(70, (w * h) / 22000));
+    flakes = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, r: 0.8 + Math.random() * 2.2, v: 0.25 + Math.random() * 0.75, p: Math.random() * 6.3, o: 0.2 + Math.random() * 0.5 }));
+  };
+  size();
+  addEventListener("resize", size);
+  const tick = (t) => {
+    if (!document.hidden) {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "#fff";
+      for (const f of flakes) {
+        f.y += f.v; f.x += Math.sin(t / 1400 + f.p) * 0.3;
+        if (f.y > h + 4) { f.y = -4; f.x = Math.random() * w; }
+        ctx.globalAlpha = f.o;
+        ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.3); ctx.fill();
       }
-      requestAnimationFrame(tick);
-    };
+    }
     requestAnimationFrame(tick);
-  });
+  };
+  requestAnimationFrame(tick);
 }
 
 // Een slinger met lichtjes bovenaan elk blok met data-lights.
@@ -225,6 +228,50 @@ function hangLights() {
     }
     host.insertAdjacentHTML("afterbegin", `<svg class="lights" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><path d="${wire}" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.2" vector-effect="non-scaling-stroke"/>${bulbs}</svg>`);
   });
+}
+
+// ---------- Vrije nachten tijdens de winterperiode ----------
+const noon = (s) => new Date(s + "T12:00:00");
+export const addDays = (s, n) => { const x = noon(s); x.setDate(x.getDate() + n); return isoDate(x); };
+export const longDate = (s, year = false) => noon(s).toLocaleDateString("nl-BE", { day: "numeric", month: "long", ...(year ? { year: "numeric" } : {}) });
+const shortDate = (s) => noon(s).toLocaleDateString("nl-BE", { weekday: "short", day: "numeric", month: "short" }).replace(/\./g, "");
+
+// Toont per appartement de vrije periodes tussen vandaag en het einde van de winterperiode,
+// uit dezelfde agenda als de kalender.
+export async function renderFreeNights(el, noteEl, apartments, site) {
+  const w = site.winter;
+  const availability = await fetch(AVAILABILITY_URL).then((r) => r.json()).catch(() => null);
+  if (!availability) {
+    el.innerHTML = `<p class="muted">De agenda is nu even niet bereikbaar. Bekijk de beschikbaarheid op de pagina van elk appartement.</p>`;
+    return;
+  }
+  const today = isoDate(new Date());
+  const from = today > w.from ? today : w.from;
+  el.innerHTML = apartments.map((a) => {
+    const busy = new Set();
+    for (const b of availability.apartments?.[a.id] ?? []) for (let x = b.start; x < b.end; x = addDays(x, 1)) busy.add(x);
+    // Opeenvolgende vrije nachten samennemen tot periodes [aankomst, vertrek).
+    const ranges = [];
+    let start = null;
+    for (let x = from; x <= w.until; x = addDays(x, 1)) {
+      if (!busy.has(x)) start ??= x;
+      else if (start) { ranges.push([start, x]); start = null; }
+    }
+    if (start) ranges.push([start, addDays(w.until, 1)]);
+    const rows = ranges.map(([s, e]) => {
+      const n = Math.round((noon(e) - noon(s)) / 864e5);
+      return `<li><a href="appartement.html?id=${a.id}&arr=${s}&dep=${e}#boeken"><b>${shortDate(s)}</b> tot <b>${shortDate(e)}</b></a><span>${n} nacht${n > 1 ? "en" : ""}</span></li>`;
+    }).join("") || `<li class="none">Volzet tijdens Winterpret</li>`;
+    return `<div class="card">
+      <h3><small>${a.name} · ${a.guests} gasten</small>${a.subtitle}</h3>
+      <ul>${rows}</ul>
+      <a class="link" href="appartement.html?id=${a.id}">Bekijk het appartement ${icon("arrow")}</a>
+    </div>`;
+  }).join("");
+  if (noteEl && availability.updated) {
+    const t = new Date(availability.updated).toLocaleString("nl-BE", { dateStyle: "medium", timeStyle: "short" });
+    noteEl.textContent = `Agenda laatst bijgewerkt: ${t}. Vertrekken kan ook op een dag waarop een volgende gast aankomt.`;
+  }
 }
 
 // ---------- Animaties ----------
