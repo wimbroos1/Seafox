@@ -4,22 +4,42 @@ Website voor seafox.be met de drie appartementen (207, 301, 303), beschikbaarhei
 
 ## Hoe het werkt
 
-- **Inhoud** van de appartementen staat in `data/apartments.json`. Teksten op de site zelf staan in `index.html`.
+- **Inhoud** van de appartementen staat in `data/apartments.json`. De andere teksten staan in de pagina's zelf.
 - **Beschikbaarheid uit Airbnb:** elk uur haalt GitHub (de workflow in `.github/workflows/sync-calendars.yml`) de Airbnb-agenda van elk appartement op en zet de bezette nachten in `data/availability.json`. De site toont die als bezet.
 - **Directe boekingen naar Airbnb:** zet een boeking die je rechtstreeks krijgt in `data/direct-bookings.json`, bijvoorbeeld:
   ```json
   { "207": [{ "start": "2027-04-03", "end": "2027-04-07" }], "301": [], "303": [] }
   ```
   (`end` is de vertrekdag.) De workflow maakt daar `ical/207.ics` van. Airbnb leest die link en blokkeert die data ook.
-- **Aanvragen:** het formulier opent een ingevulde e-mail naar info@seafox.be. Er zijn geen online betalingen.
+- **Aanvragen:** het formulier opent een ingevulde e-mail naar het adres uit `data/site.json`. Er zijn geen online betalingen.
+
+## Pagina's
+
+- `index.html`: de startpagina.
+- `appartement.html`: de pagina per appartement, met foto's, kalender en aanvraagformulier.
+- `omgeving.html`: wat er te doen is in en rond Blankenberge.
+- `winter.html`: schaatsbaan en kerstmarkt op het plein, met de vrije nachten in die periode.
+- `praktisch.html`: veelgestelde vragen (inchecken, zwembad, parkeren, huisregels).
+
+De kop en de voet van elke pagina komen uit `assets/site.js`, zodat het menu overal hetzelfde is.
 
 ## Ontwerp en foto's
 
-De huisstijl (kleuren en lettertypes) staat bovenaan in `assets/style.css`. De illustraties staan in `assets/illustrations/`: de kust, het dakzwembad en een eigen illustratie per appartement.
+De huisstijl (kleuren en lettertypes) staat bovenaan in `assets/style.css`. De illustraties staan in `assets/illustrations/`.
 
-Echte foto's toevoegen kan in `assets/photos/`, als JPG van ongeveer 2000 pixels breed:
-- `assets/photos/207/01.jpg` tot `05.jpg` (en zo ook voor 301 en 303). Foto 01 vervangt de illustratie in de boog; zodra er foto's zijn verschijnt op de appartementspagina vanzelf een galerij. De labels staan in `data/apartments.json`.
-- `assets/photos/algemeen/hero.jpg` en `zwembad.jpg` vervangen, als je dat wilt, de illustraties van de opening en het zwembad.
+**Foto's** komen uit je eigen Airbnb-advertenties. De lijst staat in `data/photo-sources.json`: per appartement de foto's in de volgorde van de website, elk met een bijschrift (`label`) en de link naar de foto (`url`). De eerste foto is de hoofdfoto. Pas je dat bestand aan, dan haalt GitHub (de workflow "Foto's ophalen van Airbnb") de foto's opnieuw op en zet ze in `assets/photos/`. Je kan die workflow ook met de hand starten onder Actions.
+
+Er staat nog geen echte foto van het zwembad op de site. Zet er een neer als `assets/photos/algemeen/zwembad.jpg` en laat het weten, dan vervangt die de illustratie.
+
+## Winterthema aan- en uitzetten
+
+Het winterthema (sneeuw, lichtjes, het blok op de startpagina en de pagina Winter in het menu) wordt geregeld in `data/site.json` onder `winter`:
+
+- `"show": "auto"` toont het thema vanzelf van `showFrom` tot en met `until`. Daarna verdwijnt het zonder dat je iets hoeft te doen.
+- `"show": "aan"` toont het altijd, `"show": "uit"` nooit.
+- `from`, `until` en `events` zijn de data en het programma van Winterpret. Pas ze volgend jaar aan.
+
+In hetzelfde bestand staat ook het e-mailadres (`email`) waar aanvragen naartoe gaan.
 
 ## Eenmalig instellen
 

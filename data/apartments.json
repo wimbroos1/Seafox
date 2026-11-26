@@ -18,29 +18,7 @@
     ],
     "airbnb": "https://www.airbnb.com/rooms/1033912047756559199",
     "rating": "4,69 uit 5 (83 reviews)",
-    "color": "#2b4a7a",
-    "photos": [
-      {
-        "src": "assets/photos/207/01.jpg",
-        "label": "Woonkamer"
-      },
-      {
-        "src": "assets/photos/207/02.jpg",
-        "label": "Slaapkamer"
-      },
-      {
-        "src": "assets/photos/207/03.jpg",
-        "label": "Keuken"
-      },
-      {
-        "src": "assets/photos/207/04.jpg",
-        "label": "Badkamer"
-      },
-      {
-        "src": "assets/photos/207/05.jpg",
-        "label": "Uitzicht"
-      }
-    ]
+    "color": "#2b4a7a"
   },
   {
     "id": "301",
@@ -61,29 +39,7 @@
     ],
     "airbnb": "https://www.airbnb.be/rooms/1156358665630817427",
     "rating": "4,86 uit 5 (44 reviews), Gastenfavoriet",
-    "color": "#b5562f",
-    "photos": [
-      {
-        "src": "assets/photos/301/01.jpg",
-        "label": "Woonkamer"
-      },
-      {
-        "src": "assets/photos/301/02.jpg",
-        "label": "Slaapkamer"
-      },
-      {
-        "src": "assets/photos/301/03.jpg",
-        "label": "Keuken"
-      },
-      {
-        "src": "assets/photos/301/04.jpg",
-        "label": "Terras"
-      },
-      {
-        "src": "assets/photos/301/05.jpg",
-        "label": "Kinderhoek"
-      }
-    ]
+    "color": "#b5562f"
   },
   {
     "id": "303",
@@ -104,28 +60,6 @@
     ],
     "airbnb": "https://www.airbnb.com/rooms/686520916302769645",
     "rating": "4,89 uit 5 (109 reviews)",
-    "color": "#3f6b5c",
-    "photos": [
-      {
-        "src": "assets/photos/303/01.jpg",
-        "label": "Woonkamer"
-      },
-      {
-        "src": "assets/photos/303/02.jpg",
-        "label": "Slaapkamer 1"
-      },
-      {
-        "src": "assets/photos/303/03.jpg",
-        "label": "Slaapkamer 2"
-      },
-      {
-        "src": "assets/photos/303/04.jpg",
-        "label": "Keuken"
-      },
-      {
-        "src": "assets/photos/303/05.jpg",
-        "label": "Werkplek"
-      }
-    ]
+    "color": "#3f6b5c"
   }
 ]
