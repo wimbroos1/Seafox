@@ -1,11 +1,11 @@
-import { icon, featureIcon, cover, small, initSite } from "./site.js";
+import { icon, featureIcon, cover, small, initSite, longDate, AVAILABILITY_URL } from "./site.js";
 
 const MONTHS_SHOWN = 2;
 
 const params = new URLSearchParams(location.search);
-const [{ site, apartments }, availability] = await Promise.all([
+const [{ site, apartments, winter }, availability] = await Promise.all([
   initSite("appartement"),
-  fetch("../data/availability.json").then((r) => (r.ok ? r.json() : { apartments: {} })).catch(() => ({ apartments: {} })),
+  fetch(AVAILABILITY_URL).then((r) => (r.ok ? r.json() : { apartments: {} })).catch(() => ({ apartments: {} })),
 ]);
 const apt = apartments.find((a) => a.id === params.get("id")) ?? apartments[0];
 const CONTACT_EMAIL = site.email ?? "info@seafox.be";
@@ -17,6 +17,7 @@ document.getElementById("subtitle").textContent = apt.subtitle;
 document.getElementById("summary").textContent = apt.summary;
 document.getElementById("chips").innerHTML = `
   <span class="chip star">${icon("star")}${apt.rating} op Airbnb</span>
+  ${winter ? `<a class="chip gold" href="winter.html">${icon("skate")}Schaatsbaan voor de deur tot ${longDate(site.winter.until)}</a>` : ""}
   <a class="btn sm" href="#boeken">Bekijk beschikbaarheid ${icon("arrow")}</a>`;
 document.getElementById("specs").innerHTML = [
   ["users", `${apt.guests} gasten`, "maximaal"],
