@@ -1,0 +1,45 @@
+{
+  "note": "Algemene instellingen van de website. winter.show: 'auto' toont het winterthema vanzelf tussen showFrom en until, 'aan' altijd, 'uit' nooit.",
+  "email": "info@seafox.be",
+  "winter": {
+    "show": "auto",
+    "showFrom": "2026-11-01",
+    "from": "2026-11-27",
+    "until": "2027-01-03",
+    "name": "Winterpret Blankenberge",
+    "place": "Koning Leopold III-plein",
+    "source": "https://www.visit-blankenberge.be/winterpret",
+    "events": [
+      {
+        "date": "2026-11-27",
+        "time": "19 uur",
+        "title": "Officiële opening",
+        "text": "Met live optredens en dj."
+      },
+      {
+        "date": "2026-12-06",
+        "time": "14 tot 17 uur",
+        "title": "Sinterklaas op bezoek",
+        "text": "De Sint komt langs op het plein."
+      },
+      {
+        "date": "2026-12-25",
+        "time": "14 tot 17 uur",
+        "title": "De Kerstman op bezoek",
+        "text": "Kerstdag op de kerstmarkt."
+      },
+      {
+        "date": "2027-01-01",
+        "time": "",
+        "title": "Nieuwjaarsfeest",
+        "text": "Het nieuwe jaar inzetten met muziek op het plein."
+      },
+      {
+        "date": "2027-01-03",
+        "time": "",
+        "title": "Slotfeest",
+        "text": "De laatste dag van Winterpret."
+      }
+    ]
+  }
+}

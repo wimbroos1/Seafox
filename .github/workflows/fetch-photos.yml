@@ -1,0 +1,36 @@
+name: Foto's ophalen van Airbnb
+
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - data/photo-sources.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-photos-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Foto's downloaden
+        run: node scripts/fetch-photos.mjs
+      - name: Foto's bewaren
+        run: |
+          git config user.name "seafox-bot"
+          git config user.email "seafox-bot@users.noreply.github.com"
+          git add assets/photos
+          if git diff --cached --quiet; then
+            echo "Geen nieuwe foto's."
+          else
+            git commit -m "Foto's bijgewerkt"
+            git push
+          fi

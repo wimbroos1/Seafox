@@ -1,40 +1,52 @@
-import { icon, featureIcon, cover, existingPhotos, initHeader, initReveal } from "./site.js";
+import { icon, featureIcon, cover, small, initSite, longDate, AVAILABILITY_URL } from "./site.js";
 
-const CONTACT_EMAIL = "info@seafox.be";
 const MONTHS_SHOWN = 2;
 
 const params = new URLSearchParams(location.search);
-const [apartments, availability] = await Promise.all([
-  fetch("data/apartments.json").then((r) => r.json()),
-  fetch("data/availability.json").then((r) => (r.ok ? r.json() : { apartments: {} })).catch(() => ({ apartments: {} })),
+const [{ site, apartments, winter }, availability] = await Promise.all([
+  initSite("appartement"),
+  fetch(AVAILABILITY_URL).then((r) => (r.ok ? r.json() : { apartments: {} })).catch(() => ({ apartments: {} })),
 ]);
 const apt = apartments.find((a) => a.id === params.get("id")) ?? apartments[0];
+const CONTACT_EMAIL = site.email ?? "info@seafox.be";
 
 // ---------- Inhoud ----------
 document.title = `${apt.name} · ${apt.subtitle} | Seafox Blankenberge`;
-document.getElementById("title").textContent = apt.name;
+document.getElementById("title").textContent = `${apt.name} · ${apt.floor}`;
 document.getElementById("subtitle").textContent = apt.subtitle;
 document.getElementById("summary").textContent = apt.summary;
-document.getElementById("rating").innerHTML = `${icon("star")} ${apt.rating} op Airbnb`;
+document.getElementById("chips").innerHTML = `
+  <span class="chip star">${icon("star")}${apt.rating} op Airbnb</span>
+  ${winter ? `<a class="chip gold" href="winter.html">${icon("skate")}Schaatsbaan voor de deur tot ${longDate(site.winter.until)}</a>` : ""}
+  <a class="btn sm" href="#boeken">Bekijk beschikbaarheid ${icon("arrow")}</a>`;
 document.getElementById("specs").innerHTML = [
   ["users", `${apt.guests} gasten`, "maximaal"],
   ["bed", `${apt.bedrooms} slaapkamer${apt.bedrooms > 1 ? "s" : ""}`, apt.beds],
   ["bath", "Badkamer", apt.bathrooms.replace(/^1 badkamer en /, "plus ")],
-  ["stairs", apt.floor, "met lift"],
+  ["lift", apt.floor, "met lift"],
 ].map(([i, b, s]) => `<li>${icon(i)}<b>${b}</b><span>${s}</span></li>`).join("");
 document.getElementById("features").innerHTML = apt.features.map((f) => `<li>${icon(featureIcon(f))}${f}</li>`).join("");
 document.getElementById("adults").max = apt.guests;
 
-document.getElementById("arch").innerHTML = cover(apt, true);
-document.getElementById("foot-apts").innerHTML = apartments.map((a) => `<li><a href="appartement.html?id=${a.id}">${a.name} · ${a.subtitle}</a></li>`).join("");
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("others").innerHTML = apartments.filter((a) => a.id !== apt.id).map((a) => `
+  <a class="room" href="appartement.html?id=${a.id}">
+    <div class="pic">${cover(a)}<span class="no">${a.name}</span><span class="rate">${icon("star")}${a.rating.split(" uit")[0]}</span></div>
+    <div class="body">
+      <h3><small>${a.floor}</small>${a.subtitle}</h3>
+      <div class="chips"><span class="chip">${icon("users")}${a.guests} gasten</span><span class="chip">${icon("bed")}${a.bedrooms} slaapkamer${a.bedrooms > 1 ? "s" : ""}</span></div>
+      <div class="foot"><span class="link">Bekijk en boek ${icon("arrow")}</span></div>
+    </div>
+  </a>`).join("");
 
-// ---------- Galerij en lichtbak ----------
-// De galerij verschijnt vanzelf zodra er echte foto's in assets/photos/<nummer>/ staan.
-existingPhotos(apt).then((photos) => {
-  if (!photos.length) return;
-  const g = document.getElementById("gallery");
-  g.innerHTML = photos.map((p) => `<img src="${p.src}" alt="${p.label}" loading="lazy">`).join("");
+// ---------- Foto's en lichtbak ----------
+const photos = apt.photos;
+const mosaic = document.getElementById("mosaic");
+if (!photos.length) {
+  mosaic.classList.add("single");
+  mosaic.innerHTML = `<button type="button" style="cursor:default"><img src="assets/illustrations/${apt.id}.svg" alt="${apt.name}"></button>`;
+} else {
+  mosaic.innerHTML = photos.map((p, i) => `<button type="button" data-i="${i}" ${i > 4 ? "hidden" : ""} aria-label="Foto ${i + 1}: ${p.label}"><img src="${i === 0 ? p.src : small(p.src)}" alt="${p.label}" ${i ? 'loading="lazy"' : ""}></button>`).join("") +
+    `<button type="button" class="all" data-i="0">${icon("grid")}Alle ${photos.length} foto's</button>`;
   const lb = document.getElementById("lightbox");
   let cur = 0;
   const show = (i) => {
@@ -46,7 +58,7 @@ existingPhotos(apt).then((photos) => {
     lb.setAttribute("aria-hidden", "false");
   };
   const close = () => { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); };
-  g.querySelectorAll("img").forEach((img, i) => img.addEventListener("click", () => show(i)));
+  mosaic.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) show(Number(b.dataset.i)); });
   document.getElementById("lb-x").innerHTML = icon("close");
   document.getElementById("lb-prev").innerHTML = icon("chevL");
   document.getElementById("lb-next").innerHTML = icon("chevR");
@@ -54,13 +66,21 @@ existingPhotos(apt).then((photos) => {
   document.getElementById("lb-prev").onclick = () => show(cur - 1);
   document.getElementById("lb-next").onclick = () => show(cur + 1);
   lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  let touchX = null;
+  lb.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+    touchX = null;
+  });
   addEventListener("keydown", (e) => {
     if (!lb.classList.contains("open")) return;
     if (e.key === "Escape") close();
     if (e.key === "ArrowLeft") show(cur - 1);
     if (e.key === "ArrowRight") show(cur + 1);
   });
-});
+}
 
 // ---------- Datums ----------
 // Een boeking [start, end) bezet de nachten van start tot de dag voor end.
@@ -198,6 +218,3 @@ document.getElementById("form").addEventListener("submit", (e) => {
   location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   setMsg("Je e-mailprogramma opent met je aanvraag. Verstuur die e-mail om af te ronden.");
 });
-
-initHeader();
-initReveal();

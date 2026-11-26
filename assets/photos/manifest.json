@@ -1,0 +1,172 @@
+{
+  "207": [
+    {
+      "src": "assets/photos/207/01.jpg",
+      "label": "Woonkamer"
+    },
+    {
+      "src": "assets/photos/207/02.jpg",
+      "label": "Leefruimte met open keuken"
+    },
+    {
+      "src": "assets/photos/207/03.jpg",
+      "label": "Zithoek en eettafel"
+    },
+    {
+      "src": "assets/photos/207/04.jpg",
+      "label": "Slaapkamer"
+    },
+    {
+      "src": "assets/photos/207/05.jpg",
+      "label": "Eethoek en keuken"
+    },
+    {
+      "src": "assets/photos/207/06.jpg",
+      "label": "Keuken"
+    },
+    {
+      "src": "assets/photos/207/07.jpg",
+      "label": "Slaapkamer"
+    },
+    {
+      "src": "assets/photos/207/08.jpg",
+      "label": "Badkamer met inloopdouche"
+    },
+    {
+      "src": "assets/photos/207/09.jpg",
+      "label": "Koffie staat klaar"
+    },
+    {
+      "src": "assets/photos/207/10.jpg",
+      "label": "Inkomhal"
+    },
+    {
+      "src": "assets/photos/207/11.jpg",
+      "label": "Apart toilet"
+    },
+    {
+      "src": "assets/photos/207/12.jpg",
+      "label": "Wasmachine"
+    }
+  ],
+  "301": [
+    {
+      "src": "assets/photos/301/01.jpg",
+      "label": "Woonkamer"
+    },
+    {
+      "src": "assets/photos/301/02.jpg",
+      "label": "Woonkamer"
+    },
+    {
+      "src": "assets/photos/301/03.jpg",
+      "label": "Keukeneiland"
+    },
+    {
+      "src": "assets/photos/301/04.jpg",
+      "label": "Slaapkamer met stapelbed"
+    },
+    {
+      "src": "assets/photos/301/05.jpg",
+      "label": "Keuken"
+    },
+    {
+      "src": "assets/photos/301/06.jpg",
+      "label": "Zithoek"
+    },
+    {
+      "src": "assets/photos/301/07.jpg",
+      "label": "Keukeneiland met bar"
+    },
+    {
+      "src": "assets/photos/301/08.jpg",
+      "label": "Slaapkamer"
+    },
+    {
+      "src": "assets/photos/301/09.jpg",
+      "label": "Badkamer"
+    },
+    {
+      "src": "assets/photos/301/10.jpg",
+      "label": "Terras"
+    },
+    {
+      "src": "assets/photos/301/11.jpg",
+      "label": "Uitzicht op het plein"
+    },
+    {
+      "src": "assets/photos/301/12.jpg",
+      "label": "Leeshoek"
+    },
+    {
+      "src": "assets/photos/301/13.jpg",
+      "label": "Inloopdouche"
+    },
+    {
+      "src": "assets/photos/301/14.jpg",
+      "label": "Wasmachine en droogkast"
+    }
+  ],
+  "303": [
+    {
+      "src": "assets/photos/303/01.jpg",
+      "label": "Woonkamer"
+    },
+    {
+      "src": "assets/photos/303/02.jpg",
+      "label": "Keuken en eettafel"
+    },
+    {
+      "src": "assets/photos/303/03.jpg",
+      "label": "Slaapkamer 1"
+    },
+    {
+      "src": "assets/photos/303/04.jpg",
+      "label": "Zithoek met uitzicht"
+    },
+    {
+      "src": "assets/photos/303/05.jpg",
+      "label": "Eettafel"
+    },
+    {
+      "src": "assets/photos/303/06.jpg",
+      "label": "Slaapkamer 2 met stapelbed"
+    },
+    {
+      "src": "assets/photos/303/07.jpg",
+      "label": "Keuken"
+    },
+    {
+      "src": "assets/photos/303/08.jpg",
+      "label": "Slaapkamer 1"
+    },
+    {
+      "src": "assets/photos/303/09.jpg",
+      "label": "Tv-hoek"
+    },
+    {
+      "src": "assets/photos/303/10.jpg",
+      "label": "Leefruimte"
+    },
+    {
+      "src": "assets/photos/303/11.jpg",
+      "label": "Inkomhal"
+    },
+    {
+      "src": "assets/photos/303/12.jpg",
+      "label": "Vestiaire"
+    }
+  ],
+  "algemeen": [
+    {
+      "src": "assets/photos/algemeen/plein.jpg",
+      "label": "Het Koning Leopold III-plein, gezien vanuit Seafox",
+      "name": "plein"
+    },
+    {
+      "src": "assets/photos/algemeen/blankenberge-avond.jpg",
+      "label": "Blankenberge bij avond",
+      "name": "blankenberge-avond"
+    }
+  ]
+}
