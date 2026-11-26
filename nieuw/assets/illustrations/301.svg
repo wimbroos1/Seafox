@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+<defs><filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .5 -.17"/></filter><linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e6cf"/><stop offset="1" stop-color="#f0d5b4"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#wall)"/>
+<path d="M0 0h800v330q-120 60-260 20T260 330 0 380z" fill="#e9b89a" opacity=".55"/>
+<rect y="760" width="800" height="240" fill="#c9764d"/><rect y="752" width="800" height="12" fill="#fff6e6"/>
+<!-- vlaggetjes -->
+<path d="M0 190q200 90 400 60t400-110" fill="none" stroke="#14293b" stroke-width="2.5"/>
+<g><path d="M60 214l40 14-30 44z" fill="#d9643a"/><path d="M150 240l42 6-24 46z" fill="#2d7f8f"/><path d="M246 254l42-2-18 48z" fill="#e3a93f"/><path d="M344 256l42-8-12 50z" fill="#1f4a66"/><path d="M440 244l40-14-4 52z" fill="#d9643a"/><path d="M534 220l38-20 4 54z" fill="#2d7f8f"/><path d="M624 186l36-24 12 52z" fill="#e3a93f"/><path d="M708 148l34-26 16 50z" fill="#1f4a66"/></g>
+<!-- groot kunstwerk -->
+<g><rect x="250" y="320" width="330" height="300" fill="#fffaf0" stroke="#14293b" stroke-width="7"/>
+<circle cx="340" cy="410" r="52" fill="#e3a93f"/><path d="M270 600q40-130 130-90t90-70 70 20v140z" fill="#2d7f8f"/><path d="M420 350q70-10 110 50t-30 90-90-20 10-120z" fill="#d9643a"/><path d="M290 520q30-40 60 0t60 0" fill="none" stroke="#14293b" stroke-width="5" stroke-linecap="round"/><path d="M470 540l34-60 34 60z" fill="#14293b"/><circle cx="500" cy="400" r="12" fill="#fffaf0"/></g>
+<!-- klein kader -->
+<g><rect x="620" y="390" width="110" height="140" fill="#1f4a66" stroke="#14293b" stroke-width="5"/><path d="M640 500q30-70 70-10" fill="none" stroke="#fffaf0" stroke-width="5"/><circle cx="700" cy="430" r="14" fill="#e3a93f"/></g>
+<!-- plank met zeilbootje -->
+<g><rect x="60" y="470" width="150" height="10" fill="#14293b"/><path d="M96 468h78l-12 0-8-16H104z" fill="#d9643a"/><path d="M134 452v-70l40 62zM130 452v-50l-28 44z" fill="#fffaf0" stroke="#14293b" stroke-width="2"/><rect x="74" y="440" width="14" height="28" fill="#2d7f8f"/><rect x="186" y="430" width="12" height="38" fill="#e3a93f"/></g>
+<!-- hanglamp -->
+<path d="M400 0v120" stroke="#14293b" stroke-width="3"/><path d="M340 180a60 60 0 0 1 120 0z" fill="#d9643a"/><circle cx="400" cy="184" r="10" fill="#ffe7b0"/>
+<!-- tapijt -->
+<path d="M70 880h660l50 90H20z" fill="#fff6e6"/><g fill="none" stroke="#2d7f8f" stroke-width="6"><path d="M90 905h620M60 945h680"/></g><g fill="#d9643a"><path d="M130 925l14-10 14 10-14 10zM260 925l14-10 14 10-14 10zM390 925l14-10 14 10-14 10zM520 925l14-10 14 10-14 10zM650 925l14-10 14 10-14 10z"/></g>
+<!-- sofa -->
+<g><path d="M190 850v26M610 850v26" stroke="#14293b" stroke-width="8" stroke-linecap="round"/>
+<rect x="170" y="640" width="460" height="170" rx="44" fill="#e3a93f"/><rect x="150" y="740" width="500" height="80" rx="30" fill="#edb955"/><rect x="170" y="800" width="460" height="50" rx="12" fill="#c98f2c"/>
+<rect x="120" y="700" width="72" height="146" rx="34" fill="#e3a93f"/><rect x="608" y="700" width="72" height="146" rx="34" fill="#e3a93f"/>
+<circle cx="270" cy="716" r="46" fill="#d9643a"/><rect x="330" y="672" width="92" height="86" rx="16" fill="#1f4a66" transform="rotate(-6 376 715)"/><g stroke="#fffaf0" stroke-width="4" transform="rotate(-6 376 715)"><path d="M344 700h64M344 720h64M344 740h64"/></g><rect x="462" y="676" width="90" height="82" rx="16" fill="#2d7f8f" transform="rotate(8 507 717)"/></g>
+<!-- plant -->
+<g><path d="M700 880l-22-90h84l-22 90z" fill="#d9643a"/><path d="M678 790h84v14h-84z" fill="#b84f2b"/><g fill="#3f6b55"><path d="M720 790q-70-60-60-170 60 60 60 170zM720 790q10-110 70-150-6 100-70 150zM720 790q-10-150 10-210 30 100-10 210z"/></g></g>
+<!-- poef en speelgoed -->
+<ellipse cx="80" cy="840" rx="62" ry="40" fill="#2d7f8f"/><ellipse cx="80" cy="826" rx="62" ry="30" fill="#3a97a8"/>
+<rect width="800" height="1000" filter="url(#grain)" opacity=".45"/></svg>
