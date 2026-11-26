@@ -1,0 +1,42 @@
+name: Agenda's synchroniseren met Airbnb
+
+on:
+  schedule:
+    - cron: "17 * * * *" # elk uur
+  workflow_dispatch: {}
+  push:
+    paths:
+      - data/direct-bookings.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-calendars
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Agenda's ophalen en schrijven
+        env:
+          AIRBNB_ICAL_207: ${{ secrets.AIRBNB_ICAL_207 }}
+          AIRBNB_ICAL_301: ${{ secrets.AIRBNB_ICAL_301 }}
+          AIRBNB_ICAL_303: ${{ secrets.AIRBNB_ICAL_303 }}
+        run: node scripts/sync-calendars.mjs
+      - name: Wijzigingen bewaren
+        run: |
+          git config user.name "seafox-bot"
+          git config user.email "seafox-bot@users.noreply.github.com"
+          git add data/availability.json ical/
+          if git diff --cached --quiet; then
+            echo "Geen nieuwe boekingen."
+          else
+            git commit -m "Beschikbaarheid bijgewerkt"
+            git push
+          fi

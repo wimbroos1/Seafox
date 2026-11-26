@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seafox Blankenberge</title>
+  <meta name="theme-color" content="#0f2233">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header on-light">
+    <div class="wrap">
+      <a class="logo" href="./" aria-label="Seafox Blankenberge">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 5l9 9h10l9-9-2 17-12 12L8 22z" fill="#d9643a"/><path d="M8 22h7l5 6 5-6h7L20 34z" fill="#f6cf9a"/><circle cx="15" cy="19" r="1.4" fill="#14293b"/><circle cx="25" cy="19" r="1.4" fill="#14293b"/><circle cx="20" cy="31.4" r="1.5" fill="#14293b"/></svg>
+        <span><b>Seafox</b><small>Blankenberge</small></span>
+      </a>
+      <nav class="nav">
+        <a href="./#appartementen">Appartementen</a>
+        <a href="./#zwembad">Zwembad</a>
+        <a href="./#ligging">Ligging</a>
+        <a class="btn" href="#boeken">Aanvragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="apt-hero">
+    <div class="wrap">
+      <div>
+        <a class="crumb" href="./#appartementen"><span data-icon="arrow"></span>Alle appartementen</a>
+        <h1 id="title">Seafox</h1>
+        <div class="sub" id="subtitle"></div>
+        <div class="rating" id="rating"></div>
+        <p class="lead" id="summary"></p>
+        <ul class="specs-big" id="specs"></ul>
+        <a class="btn" href="#boeken">Bekijk beschikbaarheid <span data-icon="arrow"></span></a>
+      </div>
+      <div class="arch" id="arch"></div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="gallery" id="gallery"></div>
+
+    <div class="apt-layout">
+      <div>
+        <div class="block">
+          <span class="eyebrow">In het appartement</span>
+          <h2>Wat je er vindt</h2>
+          <ul class="features" id="features"></ul>
+        </div>
+
+        <div class="block">
+          <span class="eyebrow">In het gebouw</span>
+          <h2>Zwembad, strand en station</h2>
+          <ul class="features">
+            <li data-icon="pool">Verwarmd dakzwembad (april tot oktober)</li>
+            <li data-icon="key">Self check-in met digitale sleutel</li>
+            <li data-icon="train">Station en kusttram aan de deur</li>
+            <li data-icon="beach">Strand op wandelafstand</li>
+            <li data-icon="dog">Honden welkom (niet op zetels of bedden)</li>
+            <li data-icon="nosmoke">Volledig rookvrij</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <span class="eyebrow">Wanneer kom je?</span>
+          <div class="cal-head">
+            <h2>Beschikbaarheid</h2>
+            <div class="cal-nav">
+              <button id="prev" aria-label="Vorige maand"></button>
+              <button id="next" aria-label="Volgende maand"></button>
+            </div>
+          </div>
+          <div class="cal-months" id="months"></div>
+          <div class="legend">
+            <span><i style="border:1px solid var(--ink)"></i>Vrij</span>
+            <span><i style="background:#d8c9bd"></i>Bezet</span>
+            <span><i style="background:var(--terra)"></i>Jouw keuze</span>
+          </div>
+          <p class="cal-note" id="updated">Klik op je aankomstdag en daarna op je vertrekdag.</p>
+        </div>
+      </div>
+
+      <aside class="book" id="boeken">
+        <h3>Verblijf aanvragen</h3>
+        <p class="note">Je betaalt nu niets. We bevestigen je aanvraag persoonlijk.</p>
+        <form id="form" novalidate>
+          <div class="dates">
+            <label>Aankomst<input type="date" id="arr" required></label>
+            <label>Vertrek<input type="date" id="dep" required></label>
+          </div>
+          <div class="guests">
+            <label>Volw.<input type="number" id="adults" min="1" value="2"></label>
+            <label>Kind.<input type="number" id="kids" min="0" value="0"></label>
+            <label>Hond<select id="dog"><option>Nee</option><option>Ja</option></select></label>
+          </div>
+          <div class="nights" id="nights"></div>
+          <label for="name">Naam</label><input id="name" autocomplete="name" required>
+          <label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required>
+          <label for="phone">Telefoon</label><input id="phone" type="tel" autocomplete="tel">
+          <label for="msg">Bericht (optioneel)</label><textarea id="msg"></textarea>
+          <button class="btn" type="submit">Aanvraag versturen <span data-icon="arrow"></span></button>
+          <p class="form-msg" id="formMsg"></p>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lb-img" alt="">
+    <div class="cap" id="lb-cap"></div>
+    <button class="x" id="lb-x" aria-label="Sluiten"></button>
+    <button class="prev" id="lb-prev" aria-label="Vorige foto"></button>
+    <button class="next" id="lb-next" aria-label="Volgende foto"></button>
+  </div>
+
+  <footer class="site-footer" style="margin-top:110px">
+    <svg class="wave" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 56V22q90-30 180 0t180 0 180 0 180 0 180 0 180 0 180 0 180 0v34z"/></svg>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="logo" href="./"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 5l9 9h10l9-9-2 17-12 12L8 22z" fill="#d9643a"/><path d="M8 22h7l5 6 5-6h7L20 34z" fill="#f6cf9a"/><circle cx="15" cy="19" r="1.4" fill="#14293b"/><circle cx="25" cy="19" r="1.4" fill="#14293b"/><circle cx="20" cy="31.4" r="1.5" fill="#14293b"/></svg><span><b>Seafox</b><small>Blankenberge</small></span></a>
+          <p style="max-width:320px">Drie appartementen met dakzwembad, in het hart van Blankenberge.</p>
+        </div>
+        <div>
+          <h4>Adres</h4>
+          Koning Leopold III-plein 15<br>8370 Blankenberge<br><a href="mailto:info@seafox.be">info@seafox.be</a>
+        </div>
+        <div>
+          <h4>Appartementen</h4>
+          <ul id="foot-apts"></ul>
+        </div>
+      </div>
+      <div class="legal"><span>© <span id="year"></span> Seafox Blankenberge</span><span>Inchecken vanaf 15 uur · Uitchecken voor 11 uur</span></div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/appartement.js"></script>
+</body>
+</html>
