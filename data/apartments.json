@@ -1,0 +1,131 @@
+[
+  {
+    "id": "207",
+    "name": "Seafox 207",
+    "subtitle": "Blue Velvet Suite",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": "1 kingsize bed",
+    "bathrooms": "1 badkamer en apart toilet",
+    "floor": "Tweede verdieping",
+    "summary": "Een stijlvolle suite voor twee, met een open leefruimte, volledig uitgeruste keuken en uitzicht over de stad.",
+    "features": [
+      "Wifi",
+      "Volledig uitgeruste keuken",
+      "Zonder trappen binnen het appartement",
+      "Reisbedje op aanvraag",
+      "Toegang tot het dakzwembad"
+    ],
+    "airbnb": "https://www.airbnb.com/rooms/1033912047756559199",
+    "rating": "4,69 uit 5 (83 reviews)",
+    "color": "#2b4a7a",
+    "photos": [
+      {
+        "src": "assets/photos/207/01.jpg",
+        "label": "Woonkamer"
+      },
+      {
+        "src": "assets/photos/207/02.jpg",
+        "label": "Slaapkamer"
+      },
+      {
+        "src": "assets/photos/207/03.jpg",
+        "label": "Keuken"
+      },
+      {
+        "src": "assets/photos/207/04.jpg",
+        "label": "Badkamer"
+      },
+      {
+        "src": "assets/photos/207/05.jpg",
+        "label": "Uitzicht"
+      }
+    ]
+  },
+  {
+    "id": "301",
+    "name": "Seafox 301",
+    "subtitle": "Sacho-Art familie-appartement",
+    "guests": 4,
+    "bedrooms": 1,
+    "beds": "1 tweepersoonsbed en 1 stapelbed",
+    "bathrooms": "1 badkamer en apart toilet",
+    "floor": "Derde verdieping",
+    "summary": "Ingericht door een kunstenaarskoppel uit Blankenberge en gemaakt voor gezinnen. Gezellige woonkamer, volledig uitgeruste keuken en zicht op het Koning Leopold III-plein.",
+    "features": [
+      "Wifi",
+      "Volledig uitgeruste keuken",
+      "Werkplek",
+      "Terras",
+      "Toegang tot het dakzwembad"
+    ],
+    "airbnb": "https://www.airbnb.be/rooms/1156358665630817427",
+    "rating": "4,86 uit 5 (44 reviews), Gastenfavoriet",
+    "color": "#b5562f",
+    "photos": [
+      {
+        "src": "assets/photos/301/01.jpg",
+        "label": "Woonkamer"
+      },
+      {
+        "src": "assets/photos/301/02.jpg",
+        "label": "Slaapkamer"
+      },
+      {
+        "src": "assets/photos/301/03.jpg",
+        "label": "Keuken"
+      },
+      {
+        "src": "assets/photos/301/04.jpg",
+        "label": "Terras"
+      },
+      {
+        "src": "assets/photos/301/05.jpg",
+        "label": "Kinderhoek"
+      }
+    ]
+  },
+  {
+    "id": "303",
+    "name": "Seafox 303",
+    "subtitle": "Nordic Serenity",
+    "guests": 4,
+    "bedrooms": 2,
+    "beds": "1 kingsize bed en 1 stapelbed",
+    "bathrooms": "1 badkamer en apart toilet",
+    "floor": "Derde verdieping",
+    "summary": "Rustig Scandinavisch interieur met twee slaapkamers, een volledig uitgeruste keuken en een werkplek. De slaapkamers kijken uit op het Koning Leopold III-plein.",
+    "features": [
+      "Snelle wifi (333 Mbps)",
+      "Volledig uitgeruste keuken",
+      "Werkplek",
+      "Koffie en thee voorzien",
+      "Toegang tot het dakzwembad"
+    ],
+    "airbnb": "https://www.airbnb.com/rooms/686520916302769645",
+    "rating": "4,89 uit 5 (109 reviews)",
+    "color": "#3f6b5c",
+    "photos": [
+      {
+        "src": "assets/photos/303/01.jpg",
+        "label": "Woonkamer"
+      },
+      {
+        "src": "assets/photos/303/02.jpg",
+        "label": "Slaapkamer 1"
+      },
+      {
+        "src": "assets/photos/303/03.jpg",
+        "label": "Slaapkamer 2"
+      },
+      {
+        "src": "assets/photos/303/04.jpg",
+        "label": "Keuken"
+      },
+      {
+        "src": "assets/photos/303/05.jpg",
+        "label": "Werkplek"
+      }
+    ]
+  }
+]
