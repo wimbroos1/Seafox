@@ -1,0 +1,40 @@
+{
+  "note": "Bronnen van de eigen Airbnb-foto's van Seafox. De workflow 'Foto's ophalen' downloadt ze naar assets/photos/.",
+  "width": 1440,
+  "apartments": {
+    "207": {
+      "listing": "https://www.airbnb.be/rooms/1033912047756559199",
+      "photos": [
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/77bd3152-422a-4a76-8245-e3ddeb8f02c7.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/7eb1d249-9281-4da2-b865-d47811ad6edc.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/c41e34ce-e475-4eb0-879e-9f7b9605967a.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/7360b3f3-2fd5-4590-a629-943b92a7ac06.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/51c06843-4e6b-4b6d-ac5d-af13b3390fe3.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/5ebbc442-2e3b-4154-a7ef-812cf14aff4d.jpeg"
+      ]
+    },
+    "301": {
+      "listing": "https://www.airbnb.be/rooms/1156358665630817427",
+      "photos": [
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/1a7202e8-f270-4804-8b70-15c1c4d6984f.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/dbc70599-98a2-4bee-a93d-8cf9ada815f5.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/55509d54-6fa8-48a1-a2a6-c68cc8fc07a8.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/d8f92015-3f6f-4fd4-b543-4b63b7d81b3a.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/1e19a557-3b9a-49c1-9a2e-f91b46467f1e.jpeg",
+        "https://a0.muscache.com/im/pictures/7c3d431d-9b41-41ca-b2d3-58b114e834bd.jpg"
+      ]
+    },
+    "303": {
+      "listing": "https://www.airbnb.be/rooms/686520916302769645",
+      "photos": [
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/d06fbb26-719c-4cbd-b190-3b111eeb034e.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/e0e579ed-7395-4ffe-91c6-77267b82a248.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/36414115-dcca-4bf1-9436-0695afe1187f.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/34b3a290-a0e3-4020-a7ff-1c8a196ce2d6.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/468564b2-9cc9-420f-ba1e-8d5706d3aff1.jpeg",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/8799fbc5-dfdf-4960-b1e7-837e09ca5017.jpeg",
+        "https://a0.muscache.com/im/pictures/410d1d1d-24a2-4f6c-8b6d-48418b503e0f.jpg"
+      ]
+    }
+  }
+}
