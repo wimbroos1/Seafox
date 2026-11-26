@@ -1,42 +1,177 @@
 {
-  "note": "Bronnen van de eigen Airbnb-foto's van Seafox. De workflow 'Foto's ophalen' downloadt ze naar assets/photos/.",
+  "note": "Bronnen van de eigen Airbnb-foto's van Seafox, in de volgorde waarin ze op de website staan. Na een wijziging haalt de workflow 'Foto's ophalen van Airbnb' ze opnieuw op.",
   "width": 1440,
-  "discover": true,
-  "max": 40,
+  "smallWidth": 720,
   "apartments": {
-    "207": {
-      "listing": "https://www.airbnb.be/rooms/1033912047756559199",
-      "photos": [
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/77bd3152-422a-4a76-8245-e3ddeb8f02c7.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/7eb1d249-9281-4da2-b865-d47811ad6edc.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/c41e34ce-e475-4eb0-879e-9f7b9605967a.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/7360b3f3-2fd5-4590-a629-943b92a7ac06.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/51c06843-4e6b-4b6d-ac5d-af13b3390fe3.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/5ebbc442-2e3b-4154-a7ef-812cf14aff4d.jpeg"
-      ]
+    "207": [
+      {
+        "label": "Woonkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/77bd3152-422a-4a76-8245-e3ddeb8f02c7.jpeg"
+      },
+      {
+        "label": "Leefruimte met open keuken",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/c41e34ce-e475-4eb0-879e-9f7b9605967a.jpeg"
+      },
+      {
+        "label": "Zithoek en eettafel",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/7eb1d249-9281-4da2-b865-d47811ad6edc.jpeg"
+      },
+      {
+        "label": "Slaapkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/619910ce-8dfe-4f87-949b-ee9ce0445c81.jpeg"
+      },
+      {
+        "label": "Eethoek en keuken",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/7360b3f3-2fd5-4590-a629-943b92a7ac06.jpeg"
+      },
+      {
+        "label": "Keuken",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/b6f7afbe-f6ce-43ea-9c53-23c225945446.jpeg"
+      },
+      {
+        "label": "Slaapkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/906fab28-db46-46d5-8762-3dfbb7e7083e.jpeg"
+      },
+      {
+        "label": "Badkamer met inloopdouche",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/372db979-f6b3-4b45-aa8e-4f96d31e9b68.jpeg"
+      },
+      {
+        "label": "Koffie staat klaar",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/4f7908df-a6aa-49b5-94aa-e81db3fc2c95.jpeg"
+      },
+      {
+        "label": "Inkomhal",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/0bba7d6d-c6cc-40e9-906a-5ff189009a75.jpeg"
+      },
+      {
+        "label": "Apart toilet",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/13c966f0-e01a-4a15-a095-0e38369bd6b6.jpeg"
+      },
+      {
+        "label": "Wasmachine",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1033912047756559199/original/2651024c-b985-45ed-9786-911380e023d8.jpeg"
+      }
+    ],
+    "301": [
+      {
+        "label": "Woonkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/a3122cf0-3180-4185-b107-c57ddfde1931.jpeg"
+      },
+      {
+        "label": "Woonkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/1a7202e8-f270-4804-8b70-15c1c4d6984f.jpeg"
+      },
+      {
+        "label": "Keukeneiland",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/dbc70599-98a2-4bee-a93d-8cf9ada815f5.jpeg"
+      },
+      {
+        "label": "Slaapkamer met stapelbed",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/23eee294-ff8a-4aca-84fa-87c891b2c104.jpeg"
+      },
+      {
+        "label": "Keuken",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/a6ac8363-7149-49cb-a51f-9e72363040c0.jpeg"
+      },
+      {
+        "label": "Zithoek",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/6ba1fe54-cd0f-41d5-b3da-b74c5d80733c.jpeg"
+      },
+      {
+        "label": "Keukeneiland met bar",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/15d2e0da-0cbf-4e07-b265-d36fa2c8866f.jpeg"
+      },
+      {
+        "label": "Slaapkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/1e19a557-3b9a-49c1-9a2e-f91b46467f1e.jpeg"
+      },
+      {
+        "label": "Badkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/8991be49-4708-42e3-97b1-f3213f92e919.jpeg"
+      },
+      {
+        "label": "Terras",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/d8c1fc0f-09fd-4bfa-8c43-8544b0a1cea2.jpeg"
+      },
+      {
+        "label": "Uitzicht op het plein",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/0abb0552-c302-4e6d-8acd-04a60a7f4a6c.jpeg"
+      },
+      {
+        "label": "Leeshoek",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/74f9af57-1dd7-4fcc-a282-f94cb082c71c.jpeg"
+      },
+      {
+        "label": "Inloopdouche",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/6c6abcd3-21a8-4ced-bf1e-e3f0e301984d.jpeg"
+      },
+      {
+        "label": "Wasmachine en droogkast",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/4c156428-d400-4947-9061-5028785473d8.jpeg"
+      }
+    ],
+    "303": [
+      {
+        "label": "Woonkamer",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/d06fbb26-719c-4cbd-b190-3b111eeb034e.jpeg"
+      },
+      {
+        "label": "Keuken en eettafel",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/468564b2-9cc9-420f-ba1e-8d5706d3aff1.jpeg"
+      },
+      {
+        "label": "Slaapkamer 1",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/429fb5b2-0be3-4c75-a9c6-c0882177b632.jpeg"
+      },
+      {
+        "label": "Zithoek met uitzicht",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/36414115-dcca-4bf1-9436-0695afe1187f.jpeg"
+      },
+      {
+        "label": "Eettafel",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/a8df8295-c1a6-448b-8eb0-54c02586011a.jpeg"
+      },
+      {
+        "label": "Slaapkamer 2 met stapelbed",
+        "url": "https://a0.muscache.com/im/pictures/410d1d1d-24a2-4f6c-8b6d-48418b503e0f.jpg"
+      },
+      {
+        "label": "Keuken",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/517a2879-ed9c-4d5c-a438-673348158d23.jpeg"
+      },
+      {
+        "label": "Slaapkamer 1",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/8799fbc5-dfdf-4960-b1e7-837e09ca5017.jpeg"
+      },
+      {
+        "label": "Tv-hoek",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/e0e579ed-7395-4ffe-91c6-77267b82a248.jpeg"
+      },
+      {
+        "label": "Leefruimte",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/67dc58ec-1d51-4dce-9311-9a1975a81d67.jpeg"
+      },
+      {
+        "label": "Inkomhal",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/4b1d8612-7dc5-437d-861c-4970ab898611.jpeg"
+      },
+      {
+        "label": "Vestiaire",
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/ab63f25b-49b8-479c-bc1b-6ede93d8f9f3.jpeg"
+      }
+    ]
+  },
+  "general": [
+    {
+      "name": "plein",
+      "label": "Het Koning Leopold III-plein, gezien vanuit Seafox",
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/aadc238a-716f-4677-b8ea-c46f18b8365a.jpeg"
     },
-    "301": {
-      "listing": "https://www.airbnb.be/rooms/1156358665630817427",
-      "photos": [
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/1a7202e8-f270-4804-8b70-15c1c4d6984f.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/dbc70599-98a2-4bee-a93d-8cf9ada815f5.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/55509d54-6fa8-48a1-a2a6-c68cc8fc07a8.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/d8f92015-3f6f-4fd4-b543-4b63b7d81b3a.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1156358665630817427/original/1e19a557-3b9a-49c1-9a2e-f91b46467f1e.jpeg",
-        "https://a0.muscache.com/im/pictures/7c3d431d-9b41-41ca-b2d3-58b114e834bd.jpg"
-      ]
-    },
-    "303": {
-      "listing": "https://www.airbnb.be/rooms/686520916302769645",
-      "photos": [
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/d06fbb26-719c-4cbd-b190-3b111eeb034e.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/e0e579ed-7395-4ffe-91c6-77267b82a248.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/36414115-dcca-4bf1-9436-0695afe1187f.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/34b3a290-a0e3-4020-a7ff-1c8a196ce2d6.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/468564b2-9cc9-420f-ba1e-8d5706d3aff1.jpeg",
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-686520916302769645/original/8799fbc5-dfdf-4960-b1e7-837e09ca5017.jpeg",
-        "https://a0.muscache.com/im/pictures/410d1d1d-24a2-4f6c-8b6d-48418b503e0f.jpg"
-      ]
+    {
+      "name": "blankenberge-avond",
+      "label": "Blankenberge bij avond",
+      "url": "https://a0.muscache.com/im/pictures/7c3d431d-9b41-41ca-b2d3-58b114e834bd.jpg"
     }
-  }
+  ]
 }
